@@ -31,7 +31,6 @@ class AddEmailMessage extends Component {
     try {
       let data = await AsyncStorage.getItem('messages');
       let msgs = data !== null ? JSON.parse(data) : [];
-      console.log(msgs);
       let id;
       for (var i in msgs) {
         let arr = [];
@@ -54,16 +53,11 @@ class AddEmailMessage extends Component {
       };
 
       msgs.push(item);
-      console.log(msgs);
       await AsyncStorage.setItem('messages', JSON.stringify(msgs));
       this.props.navigation.navigate('Home');
     } catch (e) {
       console.log(e);
     }
-    console.log(
-      'from: ' + name + ' subject: ' + subject,
-      'message :' + message,
-    );
   };
   render() {
     const {name, message, subject} = this.state;

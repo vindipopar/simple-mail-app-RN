@@ -44,7 +44,6 @@ class EmailMessage extends Component {
   };
 
   onDeleteItem = async () => {
-    console.log(this.state.id);
     let data = this.state.data.filter((v) => v.id !== this.state.id);
     try {
       await AsyncStorage.setItem('messages', JSON.stringify(data));
